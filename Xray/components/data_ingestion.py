@@ -8,8 +8,7 @@ from Xray.logger import logging
 
 
 class DataIngestion:
-    def __init__(self,
-                 data_ingestion_config: DataIngestionConfig,) -> None:
+    def __init__(self,data_ingestion_config: DataIngestionConfig,) -> None:
         self.data_ingestion_config = data_ingestion_config
         self.s3 = S3Operations()
         
@@ -50,3 +49,4 @@ class DataIngestion:
 
         except Exception as e:
             raise XRayException(e, sys)
+    
