@@ -2,7 +2,7 @@ import os
 import sys
 from Xray.exception import XRayException
 
-class S3Operatios:
+class S3Operations:
     def sync_folder_to_s3(self,folder:str, bucket_name:str, bucket_folder_name:str)->None:
         try:
             command:str = (
