@@ -110,11 +110,11 @@ class DataTransformation:
             logging.info("Created train data and test data paths")
 
             train_loader: DataLoader = DataLoader(
-                train_data, **self.data_transformation_config.data_loader_params
+                train_data, **self.data_transformation_config.data_loader_parms
             )
 
             test_loader: DataLoader = DataLoader(
-                test_data, **self.data_transformation_config.data_loader_params
+                test_data, **self.data_transformation_config.data_loader_parms
             )
 
             logging.info("Exited the data_loader method of Data transformation class")
@@ -154,8 +154,8 @@ class DataTransformation:
             data_transformation_artifact: DataTransformationArtifact = DataTransformationArtifact(
                 transformed_train_object=train_loader,
                 transformed_test_object=test_loader,
-                train_transform_file_path=self.data_transformation_config.train_transforms_file,
-                test_transform_file_path=self.data_transformation_config.test_transforms_file,
+                train_transform_file_path=self.data_transformation_config.train_tranform_file,
+                test_transform_file_path=self.data_transformation_config.test_tranform_file,
             )
 
             logging.info(

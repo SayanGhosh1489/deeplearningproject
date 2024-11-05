@@ -30,3 +30,14 @@ TEST_TRANSFORMS_FILE: str = "test_transforms.pkl"
 BATCH_SIZE: int = 2
 SHUFFLE: bool = False
 PIN_MEMORY: bool = True
+
+#model trainer
+TRAINED_MODEL_DIR: str = 'trained_model'
+TRAINED_MODEL_NAME: str = 'model.pt'
+DEVICE: torch.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+STEP_SIZE: int = 6
+GAMMA: float = 0.5
+EPOCH: int = 10
+
+OPTIMIZER_PARMS: dict = {"lr" : 0.01, 'momentum': 0.8}
+

@@ -95,6 +95,8 @@ class TrainPipeline:
                     data_ingestion_artifact=data_ingestion_artifact
                 )
             )
+            print(f"training data: {data_ingestion_artifact.train_file_path}")
+            print(f"testing data: {data_ingestion_artifact.test_file_path}")
 
         except Exception as e:
             raise XRayException(e, sys)
