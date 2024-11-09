@@ -78,4 +78,12 @@ class ModelTrainingConfig:
 
 
 
-        
+@dataclass
+class ModelEvaluationConfig():
+    def __init__(self):
+        self.device = DEVICE
+        self.test_loss: float = 0.0
+        self.test_accuracy: float = 0.0
+        self.total_batches: int = 0
+        self.total: int = 0
+        self.optimizer_parms: dict = OPTIMIZER_PARMS
