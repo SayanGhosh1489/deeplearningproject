@@ -205,7 +205,11 @@ class ModelTrainer:
             torch.save(model, self.model_trainer_config.trained_model_path)
 
             #saving in local file
-            os.system(f"copy {self.model_trainer_config.trained_model_path} model\\")
+            if os.name == 'nt': #windows
+                command = f"copy {self.model_trainer_config.trained_model_path} model\\"
+            else:
+                command = f"cp {self.model_trainer_config.trained_model_path} model"
+            os.system(command)
 
             train_transforms_obj = joblib.load(
                 self.data_transformation_artifact.train_transform_file_path
