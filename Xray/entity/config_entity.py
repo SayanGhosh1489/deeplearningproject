@@ -79,7 +79,7 @@ class ModelTrainingConfig:
 
 
 @dataclass
-class ModelEvaluationConfig():
+class ModelEvaluationConfig:
     def __init__(self):
         self.device = DEVICE
         self.test_loss: float = 0.0
@@ -87,3 +87,10 @@ class ModelEvaluationConfig():
         self.total_batches: int = 0
         self.total: int = 0
         self.optimizer_parms: dict = OPTIMIZER_PARMS
+
+@dataclass
+class ModelPusherConfig:
+    def __init__(self):
+        self.bucket_name:str = BUCKET_NAME
+        self.model_name: str = TRAINED_MODEL_NAME
+

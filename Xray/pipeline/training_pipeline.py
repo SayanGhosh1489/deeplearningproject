@@ -4,6 +4,7 @@ from Xray.components.data_ingestion import DataIngestion
 from Xray.components.data_transformation import DataTransformation
 from Xray.components.model_training import ModelTrainer
 from Xray.components.model_evaluation import ModelEvaluation
+from Xray.components.model_pusher import ModelPusher
 
 from Xray.entity.artifact_entity import (
     DataIngestionArtifact,
@@ -18,7 +19,8 @@ from Xray.entity.config_entity import (
     DataIngestionConfig,
     DataTransformationConfig,
     ModelTrainingConfig,
-    ModelEvaluationConfig
+    ModelEvaluationConfig,
+    ModelPusherConfig
   
 )
 
@@ -35,6 +37,7 @@ class TrainPipeline:
         self.data_transformation_config = DataTransformationConfig()
         self.model_trainer_config = ModelTrainingConfig()
         self.model_evaluation_config = ModelEvaluationConfig()
+        self.model_pusher_config = ModelPusherConfig()
 
 
 
@@ -136,6 +139,26 @@ class TrainPipeline:
         except Exception as e:
             raise XRayException(e, sys)
         
+    def start_model_pusher(
+            self,
+            model_trainer_artifact: ModelTrainingArtifcat
+            ):
+        logging.info("Entered start_model_pusher method of TrainPipeline class")
+
+        try:
+            model_pusher = ModelPusher(
+                model_pusher_config=self.model_pusher_config,
+                model_training_artifact=model_trainer_artifact)
+            
+            model_pusher.initiate_model_pusher()
+
+            logging.info(
+                "Exited the start_model_pusher method of TrainPipeline class"
+            )
+
+        except Exception as e:
+            raise XRayException(e,sys)
+        
     
     
     
@@ -155,6 +178,10 @@ class TrainPipeline:
 
             model_evaluation_artifact: ModelEvaluationArtifact = self.start_model_evaluation(
                 data_transformation_artifact=data_transformation_artifact,
+                model_trainer_artifact=model_trainer_artifact
+            )
+
+            self.start_model_pusher(
                 model_trainer_artifact=model_trainer_artifact
             )
 

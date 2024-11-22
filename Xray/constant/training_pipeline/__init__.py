@@ -37,7 +37,7 @@ TRAINED_MODEL_NAME: str = 'model.pt'
 DEVICE: torch.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 STEP_SIZE: int = 6
 GAMMA: float = 0.5
-EPOCH: int = 10
+EPOCH: int = 1
 
 OPTIMIZER_PARMS: dict = {"lr" : 0.01, 'momentum': 0.8}
 

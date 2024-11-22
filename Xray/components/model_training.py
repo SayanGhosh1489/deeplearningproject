@@ -204,9 +204,13 @@ class ModelTrainer:
 
             torch.save(model, self.model_trainer_config.trained_model_path)
 
+            #saving in local file
+            os.system(f"copy {self.model_trainer_config.trained_model_path} model\\")
+
             train_transforms_obj = joblib.load(
                 self.data_transformation_artifact.train_transform_file_path
             )
+
 
             bentoml.pytorch.save_model(
                 name=self.model_trainer_config.trained_bentoml_model_name,
