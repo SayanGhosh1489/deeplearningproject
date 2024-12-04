@@ -41,5 +41,13 @@ class S3OperationPusher:
             
         except Exception as e:
             XRayException(e,sys)
+
+    def download_file(
+            self,
+            bucket_name: str,
+            model_path:str,
+            model_name: str
+    ):
+        pass
             
 
