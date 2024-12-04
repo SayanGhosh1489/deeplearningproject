@@ -16,9 +16,10 @@ WORKDIR /app
 
 # Copy application files into the container
 COPY . /app
+COPY requirements_dev.txt /app/
 
 # Install Python dependencies
-RUN pip3 install -r ./requirements_dev.txt
+RUN pip3 install -r /app/requirements_dev.txt
 
 # Add a non-root user for security
 RUN useradd -m appuser
