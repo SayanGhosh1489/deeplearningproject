@@ -49,7 +49,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/xrayimage_cnn:latest
+        run: docker build ./Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/xrayimage_cnn:latest
       
       - name: push to dockerhub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/xrayimage_cnn:latest
