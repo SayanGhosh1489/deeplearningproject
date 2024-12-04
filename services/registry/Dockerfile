@@ -1,29 +1,17 @@
-# Use a slim Python image as the base
 FROM python:3.8-slim-buster
 
-# Expose Streamlit's default port
 EXPOSE 8501
 
-# Install necessary packages
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y \
     build-essential \
     software-properties-common \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-# Set the working director
 WORKDIR /app
 
-# Copy application files into the container
-COPY . /app
-COPY requirements_dev.txt /app/
+ COPY . /app
 
-# Install Python dependencies
-RUN pip3 install -r /app/requirements_dev.txt
+RUN pip3 install -r requirements.txt
 
-# Add a non-root user for security
-RUN useradd -m appuser
-USER appuser
-
-# Set the default command to run Streamlit
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+ENTRYPOINT [ "streamlit","run","app.py","--server.port=8501","--server.address=0.0.0.0" ]
