@@ -43,6 +43,9 @@ class TrainPipeline:
 
       
     def start_data_ingestion(self) -> DataIngestionArtifact:
+        """
+        This will start the training pipeline
+        """
         logging.info("Entered the start_data_ingestion method of TrainPipeline class")
         try:
 
