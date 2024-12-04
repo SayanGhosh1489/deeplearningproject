@@ -53,9 +53,6 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.REGISTRY }}/${{ secrets.IMAGE_NAME }}:${{ github.sha }}
-          labels:
-            org.opencontainers.image.title: ${{ secrets.IMAGE_NAME }}
-            org.opencontainers.image.version: ${{ github.sha }}
 
 
 
