@@ -48,8 +48,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build aImage
-        run: docker build ./services/registry/ -t ${{ secrets.DOCKER_USERNAME }}/xrayimage_cnn:latest
+      - name: Build Image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/xrayimage_cnn:latest
       
       - name: push to dockerhub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/xrayimage_cnn:latest
