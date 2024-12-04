@@ -19,6 +19,6 @@ setup(
     version="0.0.1",
     author="sayan",
     author_email="sayanghosh1489@gmail.com",
-    install_requires=get_requirements(r"D:\Projects\deeplearningproject\requirements_dev.txt"),
+    install_requires=get_requirements(r"D:\Projects\deeplearningproject\requirements.txt"),
     packages=find_packages()
 )
