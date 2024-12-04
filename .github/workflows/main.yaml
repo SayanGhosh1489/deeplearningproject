@@ -53,7 +53,7 @@ jobs:
         with:
           push: true
           file: ./registry/Dockerfile
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/register:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.IMAGE_NAME }}:latest
 
 
 
