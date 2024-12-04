@@ -83,6 +83,10 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Clean previous images and containers1
+        run: |
+          docker system prune -f
+
       # Step 4: Pull the Docker image
       - name: Pull Docker Image
         run: |
@@ -98,6 +102,6 @@ jobs:
           ${{ secrets.DOCKER_USERNAME }}/xrayimage_cnn:main
 
       # Step 6: Clean up previous images and containers
-      - name: Clean previous images and containers
+      - name: Clean previous images and containers2
         run: |
           docker system prune -f
