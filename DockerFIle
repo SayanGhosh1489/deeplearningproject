@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory
+# Set the working director
 WORKDIR /app
 
 # Copy application files into the container
