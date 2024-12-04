@@ -18,7 +18,7 @@ WORKDIR /app
 COPY . /app
 
 # Install Python dependencies
-RUN pip3 install -r requirements_dev.txt
+RUN pip3 install -r ./requirements_dev.txt
 
 # Add a non-root user for security
 RUN useradd -m appuser
